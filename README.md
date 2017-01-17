@@ -1,13 +1,33 @@
 # sample-angular-material-dialog-overview
-A basic sample showing an error received in the console when trying to show a basic md-dialog.
+A basic sample showing how to use the Material Dialog in a newly generated Angular app.
 
 #### error
 EXCEPTION: Cannot set property stack of [object Object] which has only a getter
 
 If I replace the line regarding zone in package.json to: "zone.js": "0.7.2", i instead get:
 
-EXCEPTION: Error in :0:0 caused by: The selector "app-example-dialog" did not match any elements
+**EXCEPTION: Error in :0:0 caused by: The selector "app-example-dialog" did not match any elements**
 
+### solution
+In app.module.ts, move ExampleDialog to entryComponents, like so:
+```typescript
+@NgModule({
+  declarations: [
+    AppComponent,
+    ExampleDialogComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    MaterialModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  entryComponents: [ExampleDialogComponent]
+})
+export class AppModule { }
+```
 
 #### steps to reproduce
 1. `ng new my-dialog-app` - Create app
