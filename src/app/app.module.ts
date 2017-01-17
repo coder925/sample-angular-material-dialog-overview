@@ -19,6 +19,7 @@ import { ExampleDialogComponent } from './example-dialog/example-dialog.componen
     MaterialModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent, ExampleDialogComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ExampleDialogComponent]
 })
 export class AppModule { }
